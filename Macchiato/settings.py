@@ -8,16 +8,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
+import yaml
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+app_keys = yaml.load(open(os.path.join(BASE_DIR,'credentials/app_keys.yaml'),'r').read())
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0)!b^f578y2mkr%l*jm-*773gxx$&igqe*nnw&4@%l!zdc%0qd'
+SECRET_KEY = app_keys['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,6 +55,7 @@ WSGI_APPLICATION = 'Macchiato.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+# SQLite3 for production
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
