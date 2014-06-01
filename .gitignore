@@ -54,3 +54,6 @@ docs/_build/
 
 # Application Credentials
 credentials/app_keys.yaml
+
+# OS X annoyances
+*.DS_Store
