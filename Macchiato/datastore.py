@@ -3,11 +3,9 @@ import peewee
 import models
 
 def create_tables():
-    try: models.Notebook.create_table()
+    try: models.Notebooks.create_table()
     except: pass
-    try: models.Thread.create_table()
+    try: models.Threads.create_table()
     except: pass
-    try: models.Comment.create_table()
+    try: models.Comments.create_table()
     except: pass
-
-

@@ -2,7 +2,7 @@
 
 
 {% block codecell %}
-<div class="cell border-box-sizing code_cell rendered">ADS
+<div class="cell border-box-sizing code_cell rendered">
 {{ super() }}
 </div>
 {%- endblock codecell %}

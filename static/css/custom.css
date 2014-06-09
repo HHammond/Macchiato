@@ -1,9 +1,68 @@
-
 .comments{
-    margin: 5px;
-    padding: 9px 4px;
+    /*margin: 5px;*/
+    /*padding: 9px 4px;*/
+    /*max-height: 400px;*/
+    overflow: auto;
+    /*vertical-align: middle;*/
+}
+div.comments .media-body{
+  white-space: pre-wrap;
 }
 
+div.comments .content_area:not(:empty){
+  /*border-top: 1px solid #f0f0f0;*/
+  border-bottom: 1px solid #f0f0f0;
+
+  margin-bottom: 5px;
+}
+
+div.comments .content_area .comment:last-child {
+  margin: 0px;
+}
+
+div.comments .media-object{  
+  word-wrap: break-word;
+  margin: 0px 0px 10px 0px;
+  padding: 3px 6px;
+  background: #fff;
+}
+
+div.comments .media-object h4{
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+/* Fix webkit decimal rounding bug */
+div.col-md-8{
+  width: 67%;
+}
+div.col-md-4{
+  width: 33%;
+}
+
+div.cell{
+  padding: 5px 0px !important;
+}
+div.comments .media-object:hover{
+  background: #rgb(100,100,100);
+}
+
+
+/* hide input prompts */
+div.prompt.input_prompt {
+display: none;
+height: 0px;
+}
+
+.comment-button{
+  color: rgba(0,0,0,0.1);
+  font-size: 14px;
+  font-weight: 300;
+}
+.comment-button:hover{
+  color: #0AAAC9;
+}
 .col-md-1,
 .col-md-2,
 .col-md-3,
@@ -19,6 +78,7 @@
 {
     padding:0;
     margin:0;
+    overflow: hidden;
 }
 
 h1.cover-heading{
@@ -33,10 +93,34 @@ h1.cover-heading{
 .comments h5,
 .comments h6
 {
-  font-size: 14pt;
+  /*font-size: 14pt;*/
   padding-top:0;
   margin-top: 0;
   font-weight: 300;
-  font-family: 'Kameron', serif;
 }
 
+.comments h1:empty,
+.comments h2:empty,
+.comments h3:empty,
+.comments h4:empty,
+.comments h5:empty,
+.comments h6:empty
+{
+display: none;
+}
+
+.btn-sm{
+  height: 16px;
+}
+
+.row{
+  margin-bottom: 5px;
+  border-bottom: 1px dotted #f0f0f0;
+}
+.row:last-child{
+  border: none;
+}
+/*.rendered_html h2 {
+  margin-top: 0;
+}
+*/

@@ -1,4 +1,4 @@
-{%- extends './utils/custom_basic.tpl' -%}
+{%- extends 'custom_basic.tpl' -%}
 
 
 {%- block header -%}

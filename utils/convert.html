@@ -1,0 +1,46 @@
+from IPython import nbconvert as c
+from IPython import nbformat
+from IPython.config import Config
+from IPython.nbconvert.exporters import Exporter, HTMLExporter, TemplateExporter
+import jinja2
+
+import os
+import re
+def convert_dir(dir):
+
+	base = os.path.dirname(os.path.realpath(__file__))
+	template = os.path.join(base,'custom_notebook.tpl')
+	templateLoader = jinja2.FileSystemLoader( searchpath=dir )
+	templateEnv = jinja2.Environment( loader=templateLoader )
+	jinja_template = templateEnv.get_template( 'custom_notebook.tpl' )
+
+	config = Config()
+	config.NbconvertApp.fileext = 'html'
+	config.HTMLExporter.template_file = template
+
+	exporter = TemplateExporter(config=config)
+	<!-- exporter.template_file = template -->
+	exporter.template = jinja_template
+	# exporter.template = template
+	for f in [x for x in os.listdir(dir) if re.match('.*\.ipynb$',x)]:
+		f = os.path.join(dir,f)
+		nb = nbformat.current.read(open(f,'rw'),'ipynb')
+		html, resources = exporter.from_notebook_node(nb)
+		print html
+
+
+
+	# html, resources = exporter.from_notebook_node(nb)
+
+	# c = get_config()
+
+	# c.NbConvertApp.notebooks = ['*.ipynb']
+	# c.NbConvertApp.export_format = 'custom'
+
+
+	# c.Exporter.template_file = template
+	# # c.NbConvertApp.init_syspath()
+	# # c.NbConvertApp.init_writer()
+	# # c.NbConvertApp.init_notebooks()
+	# c.NbConvertApp.convert_notebooks()
+	# # c.WriterBase.files = ['notebook.css']
