@@ -96,7 +96,7 @@ class CommentUploadHandler(tornado.web.RequestHandler):
 		try:
 			# Add a new comment
 			comment = models.Comments.create(
-				username='@HHammond',
+				username='',
 				content=post_comment,
 				thread=thread,
 				location = len(thread_comments)+1
