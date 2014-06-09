@@ -52,6 +52,9 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+# database files
+*.db
+
 # Application Credentials
 credentials/app_keys.yaml
 
